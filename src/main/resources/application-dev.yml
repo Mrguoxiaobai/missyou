@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  type: com.alibaba.druid.pool.DruidDataSource
+  datasource:
+    url: jdbc:mysql://192.168.1.244:3306/missyou?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
