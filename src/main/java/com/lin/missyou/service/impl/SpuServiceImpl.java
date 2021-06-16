@@ -3,6 +3,10 @@ package com.lin.missyou.service.impl;
 import com.lin.missyou.mode.SpuEntity;
 import com.lin.missyou.repository.SpuRepostory;
 import com.lin.missyou.service.SpuService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,7 +30,8 @@ public class SpuServiceImpl implements SpuService {
     }
 
     @Override
-    public List<SpuEntity> getLatestPagingSpu() {
-        return spuRepostory.findAll();
+    public Page<SpuEntity> getLatestPagingSpu(Integer pageNum, Integer size) {
+        PageRequest pageRequest = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
+        return spuRepostory.findAll(pageRequest);
     }
 }

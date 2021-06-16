@@ -1,12 +1,14 @@
 package com.lin.missyou.api.v1;
 
+import com.lin.missyou.bo.PageCounter;
 import com.lin.missyou.exception.NotFoundExecption;
 import com.lin.missyou.mode.SpuEntity;
 import com.lin.missyou.service.SpuService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.lin.missyou.utils.CommonUtil;
+import com.lin.missyou.vo.PagingDozer;
+import com.lin.missyou.vo.SpuSimplifyVO;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.Positive;
@@ -40,12 +42,12 @@ public class SpuController {
         return spu.get();
     }
     @GetMapping("/latest")
-    public List<SpuEntity> getLatestSpuList(){
-        List<SpuEntity> spus = spuService.getLatestPagingSpu();
-        if(spus.size()==0){
-            throw  new NotFoundExecption(3003);
-        }
-        return spus;
+    public PagingDozer<SpuEntity,SpuSimplifyVO> getLatestSpuList(@RequestParam(defaultValue ="0") @Positive Integer start,
+                                            @RequestParam(defaultValue ="10")@Positive Integer count){
+        PageCounter pageCounter = CommonUtil.convertToPageParameter(start, count);
+        Page<SpuEntity> spus = spuService.getLatestPagingSpu(pageCounter.getPageNum(), pageCounter.getSize());
+        PagingDozer<SpuEntity, SpuSimplifyVO> page = new PagingDozer<>(spus, SpuSimplifyVO.class);
+        return page;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.lin.missyou.service;
 
 import com.lin.missyou.mode.SpuEntity;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,5 +15,5 @@ import java.util.Optional;
  */
 public interface SpuService {
     Optional<SpuEntity> getSpu(Long id);
-    List<SpuEntity> getLatestPagingSpu();
+    Page<SpuEntity> getLatestPagingSpu(Integer pageNum, Integer size);
 }

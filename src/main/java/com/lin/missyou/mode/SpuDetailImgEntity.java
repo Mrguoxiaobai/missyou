@@ -2,24 +2,23 @@ package com.lin.missyou.mode;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.*;
 
-/**
- * @author Mrguo
- * @create 2021-06-16 10:45
- */
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Objects;
+
 @Entity
-@Getter
 @Setter
-@Table(name = "banner_item", schema = "missyou")
-public class BannerItemEntity extends BaseEntity{
+@Getter
+@Table(name = "spu_detail_img", schema = "missyou")
+public class SpuDetailImgEntity extends BaseEntity{
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String img;
-    private String keyword;
-    private short type;
-    private Long bannerId;
-    private String name;
+    private Long spuId;
+    private Long index;
+
+
 }

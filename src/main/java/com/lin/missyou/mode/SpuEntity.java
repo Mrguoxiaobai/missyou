@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,19 +18,20 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@Table(name = "spu", schema = "missyou", catalog = "")
+@Table(name = "spu", schema = "missyou")
 public class SpuEntity extends BaseEntity{
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String subtitle;
-    private int categoryId;
-    private Integer rootCategoryId;
+    private Long categoryId;
+    private Long rootCategoryId;
     private boolean online;
     private String price;
-    private Integer sketchSpecId;
-    private Integer defaultSkuId;
+    private Long sketchSpecId;
+    private Long defaultSkuId;
     private String img;
     private String discountPrice;
     private String description;
@@ -38,4 +40,13 @@ public class SpuEntity extends BaseEntity{
    /* private Object spuThemeImg;*/
     private String forThemeImg;
 
+    @OneToMany
+    @JoinColumn(name = "spuId")
+    private List<SkuEntity> skuList;
+    @OneToMany
+    @JoinColumn(name = "spuId")
+    private List<SpuDetailImgEntity> spuDetailImgList;
+    @OneToMany
+    @JoinColumn(name = "spuId")
+    private List<SpuImgEntity> spuImgList;
 }

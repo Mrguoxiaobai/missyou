@@ -31,7 +31,7 @@ public class BannerEntity extends BaseEntity {
     private String description;
     private String title;
     private String img;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bannerId")
+    @OneToMany
+    @JoinColumn(name ="bannerId")
     private List<BannerItemEntity> items;
 }
