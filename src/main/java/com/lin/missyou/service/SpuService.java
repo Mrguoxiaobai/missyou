@@ -16,4 +16,6 @@ import java.util.Optional;
 public interface SpuService {
     Optional<SpuEntity> getSpu(Long id);
     Page<SpuEntity> getLatestPagingSpu(Integer pageNum, Integer size);
+    Page<SpuEntity> getByCategoryId(Long id,boolean isRoot,Integer pageNum, Integer size);
+
 }

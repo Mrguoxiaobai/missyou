@@ -34,4 +34,15 @@ public class SpuServiceImpl implements SpuService {
         PageRequest pageRequest = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
         return spuRepostory.findAll(pageRequest);
     }
+
+    @Override
+    public Page<SpuEntity> getByCategoryId(Long id, boolean isRoot, Integer pageNum, Integer size) {
+        PageRequest pageRequest = PageRequest.of(pageNum, size);
+        if(isRoot){
+            return spuRepostory.findByRootCategoryId(id,pageRequest);
+        }else {
+            return spuRepostory.findByCategoryId(id,pageRequest);
+        }
+
+    }
 }
