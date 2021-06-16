@@ -30,7 +30,6 @@ public class SkuEntity extends BaseEntity{
     private String img;
     private String title;
     private Long spuId;
-    /*@Convert(converter= ListAndJson.class)*/
     private String specs;
     private String code;
     private int stock;
@@ -40,7 +39,7 @@ public class SkuEntity extends BaseEntity{
         if (this.specs == null) {
             return Collections.emptyList();
         }
-        return GenericAndJson.jsonToObject(this.specs, new TypeReference<List<Spec>>(){});
+        return GenericAndJson.JsonToObject(this.specs, new TypeReference<List<Spec>>(){});
     }
 
     public void setSpecs(List<Spec> specs) {
