@@ -6,6 +6,7 @@ import com.lin.missyou.service.SpuService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -22,5 +23,10 @@ public class SpuServiceImpl implements SpuService {
     @Override
     public Optional<SpuEntity> getSpu(Long id) {
         return spuRepostory.findById(id);
+    }
+
+    @Override
+    public List<SpuEntity> getLatestPagingSpu() {
+        return spuRepostory.findAll();
     }
 }

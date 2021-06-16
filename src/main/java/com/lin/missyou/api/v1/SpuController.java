@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.Positive;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,6 +25,12 @@ import java.util.Optional;
 public class SpuController {
     @Resource
     private SpuService spuService;
+
+    /**
+     * 查询一个商品详细信息
+     * @param id
+     * @return
+     */
     @GetMapping("/id/{id}/detail")
     public SpuEntity getSpu(@PathVariable @Positive Long id){
         Optional<SpuEntity> spu = spuService.getSpu(id);
@@ -32,4 +39,13 @@ public class SpuController {
         }
         return spu.get();
     }
+    @GetMapping("/latest")
+    public List<SpuEntity> getLatestSpuList(){
+        List<SpuEntity> spus = spuService.getLatestPagingSpu();
+        if(spus.size()==0){
+            throw  new NotFoundExecption(3003);
+        }
+        return spus;
+    }
+
 }
