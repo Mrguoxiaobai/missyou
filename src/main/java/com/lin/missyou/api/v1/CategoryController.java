@@ -1,7 +1,10 @@
 package com.lin.missyou.api.v1;
 
+import com.lin.missyou.exception.NotFoundExecption;
 import com.lin.missyou.mode.Category;
+import com.lin.missyou.mode.GridCategory;
 import com.lin.missyou.service.CategoryService;
+import com.lin.missyou.service.GridCategoryService;
 import com.lin.missyou.vo.CategoriesAllVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +26,21 @@ import java.util.Map;
 public class CategoryController {
     @Resource
     private CategoryService categoryService;
+    @Resource
+    private GridCategoryService gridCategoryService;
+
     @GetMapping("/all")
     public CategoriesAllVO getAll(){
         Map<Integer, List<Category>> all = categoryService.getAll();
-        System.out.println(all.get(1));
-        System.out.println(all.get(2));
         return new CategoriesAllVO(all);
+    }
+
+    @GetMapping("/grid/all")
+    public List<GridCategory> getGridAll(){
+        List<GridCategory> all = gridCategoryService.getAll();
+        if(all.isEmpty()){
+            throw  new NotFoundExecption(30009);
+        }
+        return all;
     }
 }
