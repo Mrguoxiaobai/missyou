@@ -7,6 +7,7 @@ import com.lin.missyou.exception.ParameterException;
 import com.lin.missyou.mode.User;
 import com.lin.missyou.repository.UserRepostory;
 import com.lin.missyou.service.AuthenticationService;
+import com.lin.missyou.utils.JwtToken;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -47,7 +48,7 @@ public class WxAuthenticationServiceImpl implements AuthenticationService {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return "";
+        return this.registerUser(session);
     }
     public String registerUser(Map<String,Object> session){
         String openid = (String) session.get("openid");
@@ -56,10 +57,10 @@ public class WxAuthenticationServiceImpl implements AuthenticationService {
         }
         Optional<User> op = userRepostory.findByOpenid(openid);
         if(op.isPresent()){
-            return "";
+            return JwtToken.makeToken(op.get().getId());
         }
         User user= User.builder().openid(openid).build();
         userRepostory.save(user);
-        return "";
+        return JwtToken.makeToken(op.get().getId());
     }
 }

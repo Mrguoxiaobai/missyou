@@ -1,5 +1,6 @@
 package com.lin.missyou.api.v1;
 
+import com.lin.missyou.core.annotations.ScopeLevel;
 import com.lin.missyou.exception.NotFoundExecption;
 import com.lin.missyou.mode.Banner;
 import com.lin.missyou.service.BannerService;
@@ -17,7 +18,8 @@ import java.util.Optional;
 public class BannerController {
     @Resource
     private BannerService bannerService;
-    @GetMapping("banner/{name}")
+    @GetMapping("name/{name}")
+    @ScopeLevel
     public Banner getBanner(@PathVariable @NotBlank String name) {
         Optional<Banner> banner = bannerService.getByName(name);
         return banner.orElseThrow(()->new NotFoundExecption(30005));
