@@ -62,11 +62,10 @@ public class GlobalExceptionAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<UnifyResponse> handleBeanValidation(HttpServletRequest req,MethodArgumentNotValidException e){
+    public UnifyResponse handleBeanValidation(HttpServletRequest req,MethodArgumentNotValidException e){
         List<ObjectError> Errors = e.getBindingResult().getAllErrors();
         String message = this.formatAllErrors(Errors);
-        new UnifyResponse(10001,message,req.getMethod()+" "+req.getRequestURI());
-        return null;
+        return new UnifyResponse(10001,message,req.getMethod()+" "+req.getRequestURI());
     }
 
     /**
@@ -88,7 +87,7 @@ public class GlobalExceptionAdvice {
     */
     private String formatAllErrors(List<ObjectError> errors){
         StringBuffer errormsg = new StringBuffer();
-        errors.forEach(error->errormsg.append(error.getDefaultMessage()));
+        errors.forEach(error->errormsg.append("["+error.getDefaultMessage()+"]"));
         return errormsg.toString();
     }
 }
