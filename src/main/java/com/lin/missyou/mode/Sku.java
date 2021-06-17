@@ -2,24 +2,21 @@ package com.lin.missyou.mode;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.lin.missyou.utils.GenericAndJson;
-import com.lin.missyou.utils.ListAndJson;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
-import javax.annotation.Resource;
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "sku", schema = "missyou")
-public class SkuEntity extends BaseEntity{
+@Where( clause = "delete_time is null")
+public class Sku extends Base {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

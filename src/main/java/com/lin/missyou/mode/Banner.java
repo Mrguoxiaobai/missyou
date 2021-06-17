@@ -1,17 +1,11 @@
 package com.lin.missyou.mode;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.catalina.LifecycleState;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Mrguo
@@ -22,7 +16,7 @@ import java.util.Objects;
 @Setter
 @Table(name = "banner", schema = "missyou")
 @Where( clause = "delete_time is null")
-public class BannerEntity extends BaseEntity {
+public class Banner extends Base {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +27,5 @@ public class BannerEntity extends BaseEntity {
     private String img;
     @OneToMany
     @JoinColumn(name ="bannerId")
-    private List<BannerItemEntity> items;
+    private List<BannerItem> items;
 }

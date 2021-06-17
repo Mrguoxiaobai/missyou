@@ -1,9 +1,8 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.SpuEntity;
+import com.lin.missyou.mode.Spu;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -14,8 +13,8 @@ import java.util.Optional;
  * @Version: 1.0
  */
 public interface SpuService {
-    Optional<SpuEntity> getSpu(Long id);
-    Page<SpuEntity> getLatestPagingSpu(Integer pageNum, Integer size);
-    Page<SpuEntity> getByCategoryId(Long id,boolean isRoot,Integer pageNum, Integer size);
+    Optional<Spu> getSpu(Long id);
+    Page<Spu> getLatestPagingSpu(Integer pageNum, Integer size);
+    Page<Spu> getByCategoryId(Long id, boolean isRoot, Integer pageNum, Integer size);
 
 }

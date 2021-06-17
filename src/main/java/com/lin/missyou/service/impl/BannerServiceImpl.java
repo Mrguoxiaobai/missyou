@@ -1,9 +1,8 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.BannerEntity;
+import com.lin.missyou.mode.Banner;
 import com.lin.missyou.repository.BannerRepostory;
 import com.lin.missyou.service.BannerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,7 +17,7 @@ public class BannerServiceImpl implements BannerService {
     @Resource
     private BannerRepostory bannerRepostory;
     @Override
-    public Optional<BannerEntity> getByName(String name) {
+    public Optional<Banner> getByName(String name) {
         return bannerRepostory.findByName(name);
     }
 }

@@ -2,11 +2,10 @@ package com.lin.missyou.mode;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @ClassName: SpuEntity
@@ -19,7 +18,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @Table(name = "spu", schema = "missyou")
-public class SpuEntity extends BaseEntity{
+@Where( clause = "delete_time is null and online=1")
+public class Spu extends Base {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,11 +42,11 @@ public class SpuEntity extends BaseEntity{
 
     @OneToMany
     @JoinColumn(name = "spuId")
-    private List<SkuEntity> skuList;
+    private List<Sku> skuList;
     @OneToMany
     @JoinColumn(name = "spuId")
-    private List<SpuDetailImgEntity> spuDetailImgList;
+    private List<SpuDetailImg> spuDetailImgList;
     @OneToMany
     @JoinColumn(name = "spuId")
-    private List<SpuImgEntity> spuImgList;
+    private List<SpuImg> spuImgList;
 }

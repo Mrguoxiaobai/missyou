@@ -15,7 +15,7 @@ import java.util.Date;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BaseEntity {
+public abstract class Base {
 
     @JsonIgnore
     @Column(insertable=false, updatable=false)
