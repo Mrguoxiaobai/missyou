@@ -20,9 +20,6 @@ public class BannerController {
     @GetMapping("banner/{name}")
     public Banner getBanner(@PathVariable @NotBlank String name) {
         Optional<Banner> banner = bannerService.getByName(name);
-        if(!banner.isPresent()){
-            throw new NotFoundExecption(30005);
-        }
-        return banner.get();
+        return banner.orElseThrow(()->new NotFoundExecption(30005));
     }
 }
