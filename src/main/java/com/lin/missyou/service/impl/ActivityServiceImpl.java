@@ -23,4 +23,5 @@ public class ActivityServiceImpl implements ActivityService {
     public Activity getByName(String name) {
         return activityRepostory.findByName(name);
     }
+
 }

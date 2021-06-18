@@ -1,6 +1,10 @@
 spring:
   profiles:
     active: dev
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    date-format: yyyy-MM-dd
+
 wx:
   appid: wx91d81d9fda4fb784
   appsecret: 4dff4b4cc2879ca5b1d60eda34617848

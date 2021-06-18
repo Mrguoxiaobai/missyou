@@ -3,6 +3,7 @@ package com.lin.missyou.api.v1;
 import com.lin.missyou.exception.NotFoundExecption;
 import com.lin.missyou.model.Activity;
 import com.lin.missyou.service.ActivityService;
+import com.lin.missyou.vo.ActivityCouponVO;
 import com.lin.missyou.vo.ActivityPureVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,4 +32,13 @@ public class ActivityController {
         }
         return new ActivityPureVO(activity);
     }
+    @GetMapping("/name/{name}/with_coupon")
+    public ActivityCouponVO getActivityWithCoupons(@PathVariable String name){
+        Activity activity = activityService.getByName(name);
+        if(activity==null){
+            throw new NotFoundExecption(40001);
+        }
+        return new ActivityCouponVO(activity);
+    }
+
 }

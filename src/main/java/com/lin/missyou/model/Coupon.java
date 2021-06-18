@@ -32,7 +32,7 @@ public class Coupon extends Base{
     private BigDecimal fullMoney;
     private BigDecimal minus;
     private BigDecimal rate;
-    private short type;
+    private Integer type;
     private Integer activityId;
     private String remark;
     private Boolean wholeStore;

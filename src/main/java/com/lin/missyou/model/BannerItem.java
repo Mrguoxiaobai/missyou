@@ -22,7 +22,7 @@ public class BannerItem extends Base {
     private Long id;
     private String img;
     private String keyword;
-    private short type;
+    private Integer type;
     private Long bannerId;
     private String name;
 }
