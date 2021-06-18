@@ -19,7 +19,7 @@ public class CategoryPureVO {
 
     private String name;
 
-    private Boolean isRoot;
+    private Integer isRoot;
 
     private String img;
 

@@ -13,5 +13,5 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface CategoryRepostory extends JpaRepository<Category,Long> {
-     public List<Category> findAllByIsRootOrderByIndexDesc(boolean isRoot);
+     public List<Category> findAllByIsRootOrderByIndexDesc(Integer isRoot);
 }

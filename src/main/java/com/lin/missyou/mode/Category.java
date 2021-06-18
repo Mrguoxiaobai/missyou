@@ -24,7 +24,7 @@ public class Category {
     private Long id;
     private String name;
     private String description;
-    private boolean isRoot;
+    private Integer isRoot;
     private Long parentId;
     private String img;
     private Integer index;

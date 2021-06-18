@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 @Setter
 public class CategoriesAllVO {
     private List<CategoryPureVO> roots;
-    private List<CategoryPureVO> sbus;
+    private List<CategoryPureVO> subs;
 
     public CategoriesAllVO(Map<Integer,List<Category>> map) {
         this.roots = map.get(1).stream().map(CategoryPureVO::new).collect(Collectors.toList());
-        this.sbus =map.get(2).stream().map(CategoryPureVO::new).collect(Collectors.toList());
+        this.subs =map.get(2).stream().map(CategoryPureVO::new).collect(Collectors.toList());
     }
 }

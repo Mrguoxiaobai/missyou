@@ -23,8 +23,8 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepostory categoryRepostory;
     @Override
     public Map<Integer, List<Category>> getAll() {
-        List<Category> roots = categoryRepostory.findAllByIsRootOrderByIndexDesc(true);
-        List<Category> subs = categoryRepostory.findAllByIsRootOrderByIndexDesc(false);
+        List<Category> roots = categoryRepostory.findAllByIsRootOrderByIndexDesc(1);
+        List<Category> subs = categoryRepostory.findAllByIsRootOrderByIndexDesc(0);
         Map<Integer, List<Category>> map = new HashMap<>();
         map.put(1, roots);
         map.put(2,subs);
