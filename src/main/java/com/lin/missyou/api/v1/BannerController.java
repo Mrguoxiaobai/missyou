@@ -1,8 +1,7 @@
 package com.lin.missyou.api.v1;
 
-import com.lin.missyou.core.annotations.ScopeLevel;
 import com.lin.missyou.exception.NotFoundExecption;
-import com.lin.missyou.mode.Banner;
+import com.lin.missyou.model.Banner;
 import com.lin.missyou.service.BannerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

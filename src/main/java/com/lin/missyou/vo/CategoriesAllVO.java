@@ -1,6 +1,6 @@
 package com.lin.missyou.vo;
 
-import com.lin.missyou.mode.Category;
+import com.lin.missyou.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 

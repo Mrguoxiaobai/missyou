@@ -1,8 +1,9 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 /**
  * @ClassName: com.lin.missyou.mode
@@ -13,6 +14,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Where( clause = "delete_time is null")
 public class Spec {
     @JsonProperty("key_id")
     private Long keyId;

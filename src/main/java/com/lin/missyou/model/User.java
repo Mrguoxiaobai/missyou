@@ -1,13 +1,11 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import com.lin.missyou.utils.MapAndJson;
 import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * @ClassName: User
@@ -23,7 +21,7 @@ import java.util.Objects;
 @Setter
 @Builder
 @Where( clause = "delete_time is null")
-public class User {
+public class User extends Base{
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

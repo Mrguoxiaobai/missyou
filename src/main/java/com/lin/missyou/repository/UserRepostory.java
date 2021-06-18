@@ -1,6 +1,6 @@
 package com.lin.missyou.repository;
 
-import com.lin.missyou.mode.User;
+import com.lin.missyou.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

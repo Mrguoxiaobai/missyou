@@ -1,11 +1,11 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.List;
 
 /**
  * @ClassName: Category
@@ -17,7 +17,8 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-public class Category {
+@Where( clause = "delete_time is null")
+public class Category extends Base{
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +31,9 @@ public class Category {
     private Integer index;
     private boolean online;
     private Integer level;
-
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "coupon_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "coupon_id"))
+    private List<Coupon> couponList;
 }

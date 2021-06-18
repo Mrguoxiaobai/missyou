@@ -1,6 +1,6 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.GridCategory;
+import com.lin.missyou.model.GridCategory;
 
 import java.util.List;
 

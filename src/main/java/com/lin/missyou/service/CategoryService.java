@@ -1,6 +1,6 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.Category;
+import com.lin.missyou.model.Category;
 import java.util.List;
 import java.util.Map;
 

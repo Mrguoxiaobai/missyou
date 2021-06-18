@@ -2,7 +2,7 @@ package com.lin.missyou.api.v1;
 
 import com.lin.missyou.bo.PageCounter;
 import com.lin.missyou.exception.NotFoundExecption;
-import com.lin.missyou.mode.Spu;
+import com.lin.missyou.model.Spu;
 import com.lin.missyou.service.SpuService;
 import com.lin.missyou.utils.CommonUtil;
 import com.lin.missyou.vo.PagingDozer;

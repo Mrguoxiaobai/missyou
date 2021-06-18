@@ -1,6 +1,6 @@
 package com.lin.missyou.repository;
 
-import com.lin.missyou.mode.Spu;
+import com.lin.missyou.model.Spu;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

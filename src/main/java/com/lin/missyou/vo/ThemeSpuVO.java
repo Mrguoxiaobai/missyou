@@ -1,6 +1,5 @@
 package com.lin.missyou.vo;
 
-import com.lin.missyou.mode.Spu;
 import lombok.Getter;
 import lombok.Setter;
 

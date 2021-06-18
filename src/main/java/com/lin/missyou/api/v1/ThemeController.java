@@ -3,7 +3,7 @@ package com.lin.missyou.api.v1;
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;
 import com.lin.missyou.exception.NotFoundExecption;
-import com.lin.missyou.mode.Theme;
+import com.lin.missyou.model.Theme;
 import com.lin.missyou.service.ThemeService;
 import com.lin.missyou.vo.ThemePureVO;
 import org.springframework.web.bind.annotation.*;

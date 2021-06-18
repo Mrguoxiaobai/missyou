@@ -1,4 +1,4 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,19 +6,23 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
+/**
+ * @author Mrguo
+ * @create 2021-06-16 10:45
+ */
 @Entity
-@Setter
 @Getter
-@Table(name = "spu_detail_img", schema = "missyou")
+@Setter
+@Table(name = "banner_item", schema = "missyou")
 @Where( clause = "delete_time is null")
-public class SpuDetailImg extends Base {
+public class BannerItem extends Base {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String img;
-    private Long spuId;
-    private Long index;
-
-
+    private String keyword;
+    private short type;
+    private Long bannerId;
+    private String name;
 }

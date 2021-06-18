@@ -1,6 +1,6 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.Spu;
+import com.lin.missyou.model.Spu;
 import org.springframework.data.domain.Page;
 
 import java.util.Optional;

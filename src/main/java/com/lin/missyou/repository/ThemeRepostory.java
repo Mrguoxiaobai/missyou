@@ -1,6 +1,6 @@
 package com.lin.missyou.repository;
 
-import com.lin.missyou.mode.Theme;
+import com.lin.missyou.model.Theme;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

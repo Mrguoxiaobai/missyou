@@ -1,6 +1,6 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.User;
+import com.lin.missyou.model.User;
 
 import java.util.Optional;
 

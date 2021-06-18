@@ -1,4 +1,4 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;

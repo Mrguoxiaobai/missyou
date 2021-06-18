@@ -1,6 +1,6 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.Banner;
+import com.lin.missyou.model.Banner;
 import com.lin.missyou.repository.BannerRepostory;
 import com.lin.missyou.service.BannerService;
 import org.springframework.stereotype.Service;

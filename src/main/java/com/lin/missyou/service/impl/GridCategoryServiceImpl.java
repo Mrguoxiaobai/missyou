@@ -1,6 +1,6 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.GridCategory;
+import com.lin.missyou.model.GridCategory;
 import com.lin.missyou.repository.GridCategoryRepostory;
 import com.lin.missyou.service.GridCategoryService;
 import org.springframework.stereotype.Service;

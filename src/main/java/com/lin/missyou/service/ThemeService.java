@@ -1,6 +1,6 @@
 package com.lin.missyou.service;
 
-import com.lin.missyou.mode.Theme;
+import com.lin.missyou.model.Theme;
 
 import java.util.List;
 import java.util.Optional;

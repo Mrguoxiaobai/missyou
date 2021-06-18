@@ -1,6 +1,6 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.Theme;
+import com.lin.missyou.model.Theme;
 import com.lin.missyou.repository.ThemeRepostory;
 import com.lin.missyou.service.ThemeService;
 import org.springframework.stereotype.Service;

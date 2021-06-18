@@ -1,4 +1,4 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import lombok.Getter;
 import lombok.Setter;

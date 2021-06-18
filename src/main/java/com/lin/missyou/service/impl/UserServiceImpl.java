@@ -1,6 +1,6 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.User;
+import com.lin.missyou.model.User;
 import com.lin.missyou.repository.UserRepostory;
 import com.lin.missyou.service.UserService;
 

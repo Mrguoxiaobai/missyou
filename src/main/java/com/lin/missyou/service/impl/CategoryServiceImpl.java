@@ -1,6 +1,6 @@
 package com.lin.missyou.service.impl;
 
-import com.lin.missyou.mode.Category;
+import com.lin.missyou.model.Category;
 import com.lin.missyou.repository.CategoryRepostory;
 import com.lin.missyou.service.CategoryService;
 import org.springframework.stereotype.Service;

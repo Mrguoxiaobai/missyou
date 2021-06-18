@@ -1,4 +1,4 @@
-package com.lin.missyou.mode;
+package com.lin.missyou.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,21 +9,16 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@Table(name = "spu_img", schema = "missyou")
+@Table(name = "spu_detail_img", schema = "missyou")
 @Where( clause = "delete_time is null")
-public class SpuImg extends Base {
+public class SpuDetailImg extends Base {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String img;
     private Long spuId;
+    private Long index;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
-    }
 }
