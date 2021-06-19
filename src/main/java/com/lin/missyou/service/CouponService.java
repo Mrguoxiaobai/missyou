@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface CouponService {
     List<Coupon> getByCategroy(Long cid);
+
+    List<Coupon> getWholeStoreCoupons();
 }

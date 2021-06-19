@@ -23,4 +23,11 @@ public interface CouponRepostory extends JpaRepository<Coupon,Long> {
             "and a.startTime < :now\n" +
             "and a.endTime > :now\n")
     List<Coupon> findByCatetory(Long cid, Date now);
+
+    @Query("select c from Coupon c\n" +
+            "join Activity a on c.activityId = a.id\n" +
+            "where c.wholeStore = :isWholeStore\n" +
+            "and a.startTime < :now\n" +
+            "and a.endTime > :now\n" )
+    List<Coupon> findByWholeStore(boolean isWholeStore, Date now);
 }
