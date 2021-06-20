@@ -1,7 +1,7 @@
 package com.lin.missyou.core;
 
 import com.lin.missyou.core.configuration.ExceptionCodeConfiguration;
-import com.lin.missyou.exception.HttpException;
+import com.lin.missyou.exception.http.HttpException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.function.ServerRequest;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
 import java.util.List;

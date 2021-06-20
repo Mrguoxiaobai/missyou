@@ -2,7 +2,7 @@ package com.lin.missyou.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lin.missyou.exception.ParameterException;
+import com.lin.missyou.exception.http.ParameterException;
 import com.lin.missyou.model.User;
 import com.lin.missyou.repository.UserRepostory;
 import com.lin.missyou.service.AuthenticationService;

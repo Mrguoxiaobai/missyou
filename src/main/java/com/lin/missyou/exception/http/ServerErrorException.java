@@ -1,4 +1,4 @@
-package com.lin.missyou.exception;
+package com.lin.missyou.exception.http;
 
 /**
  * @ClassName: com.lin.missyou.exception

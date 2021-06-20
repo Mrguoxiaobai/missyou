@@ -1,6 +1,6 @@
 package com.lin.missyou.api.v1;
 
-import com.lin.missyou.exception.NotFoundExecption;
+import com.lin.missyou.exception.http.NotFoundExecption;
 import com.lin.missyou.model.Category;
 import com.lin.missyou.model.GridCategory;
 import com.lin.missyou.service.CategoryService;

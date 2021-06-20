@@ -2,7 +2,6 @@ spring:
   profiles:
     active: dev
   jackson:
-    property-naming-strategy: SNAKE_CASE
     date-format: yyyy-MM-dd
 
 wx:

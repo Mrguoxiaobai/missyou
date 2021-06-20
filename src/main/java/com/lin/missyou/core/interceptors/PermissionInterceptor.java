@@ -1,9 +1,11 @@
 package com.lin.missyou.core.interceptors;
 
 import com.auth0.jwt.interfaces.Claim;
+import com.lin.missyou.core.LocalUser;
 import com.lin.missyou.core.annotations.ScopeLevel;
-import com.lin.missyou.exception.ForbiddenException;
-import com.lin.missyou.exception.UnAuthenticationException;
+import com.lin.missyou.exception.http.ForbiddenException;
+import com.lin.missyou.exception.http.UnAuthenticationException;
+import com.lin.missyou.model.User;
 import com.lin.missyou.service.UserService;
 import com.lin.missyou.utils.JwtToken;
 import org.springframework.util.StringUtils;
@@ -47,7 +49,9 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         Optional<Map<String, Claim>> claims = JwtToken.getClaims(tokens[1]);
         Map<String, Claim> map = claims.orElseThrow(() -> new UnAuthenticationException(10004));
         boolean valid = this.hasPermission(scopeLevel.get(), map);
-
+        if(valid){
+            this.setToThreadLocal(map);
+        }
         return valid;
     }
 
@@ -80,10 +84,10 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         }
         return true;
     }
- /*   private void setToThreadLocal(Map<String,Claim> map) {
+    private void setToThreadLocal(Map<String,Claim> map) {
         Long uid = map.get("uid").asLong();
         Integer scope = map.get("scope").asInt();
         Optional<User> user = this.userService.getUserById(uid);
-        LocalUser.set(user, scope);
-    }*/
+        LocalUser.set(user.get(), scope);
+    }
 }

@@ -4,6 +4,8 @@ import com.lin.missyou.model.Activity;
 import com.lin.missyou.vo.ActivityPureVO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /**
  * @ClassName: ActivityRepostory
  * @Author: Mrguo
@@ -13,4 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface ActivityRepostory extends JpaRepository<Activity,Long> {
     Activity findByName(String name);
+    Optional<Activity> findByCouponListId(Long couponId);
 }

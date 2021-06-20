@@ -2,12 +2,10 @@ package com.lin.missyou.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lin.missyou.exception.ServerErrorException;
+import com.lin.missyou.exception.http.ServerErrorException;
 
 import javax.annotation.Resource;
 import javax.persistence.AttributeConverter;
-import javax.persistence.Convert;
-import javax.persistence.Converter;
 import java.util.HashMap;
 import java.util.Map;
 

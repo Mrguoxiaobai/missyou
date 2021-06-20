@@ -2,15 +2,13 @@ package com.lin.missyou.api.v1;
 
 import com.lin.missyou.dto.TokenDTO;
 import com.lin.missyou.dto.TokenGetDTO;
-import com.lin.missyou.exception.NotFoundExecption;
+import com.lin.missyou.exception.http.NotFoundExecption;
 import com.lin.missyou.service.AuthenticationService;
-import com.lin.missyou.service.impl.WxAuthenticationServiceImpl;
 import com.lin.missyou.utils.JwtToken;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.annotation.Resources;
 import java.util.HashMap;
 import java.util.Map;
 

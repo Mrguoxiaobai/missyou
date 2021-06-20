@@ -1,6 +1,6 @@
 package com.lin.missyou.api.v1;
 
-import com.lin.missyou.exception.NotFoundExecption;
+import com.lin.missyou.exception.http.NotFoundExecption;
 import com.lin.missyou.model.Activity;
 import com.lin.missyou.service.ActivityService;
 import com.lin.missyou.vo.ActivityCouponVO;

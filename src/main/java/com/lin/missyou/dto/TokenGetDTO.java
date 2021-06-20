@@ -17,11 +17,11 @@ import javax.validation.constraints.NotBlank;
  */
 @Getter
 @Setter
-@NoArgsConstructor
 public class TokenGetDTO {
     @NotBlank(message = "account不允许为空")
     private String account;
     @TokenPassword(max=30,message="{token.password}")
     private String password;
+
     private LoginType loginType;
 }

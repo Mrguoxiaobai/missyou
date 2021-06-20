@@ -14,4 +14,5 @@ import java.util.Optional;
  */
 public interface UserRepostory extends JpaRepository<User,Long> {
    Optional<User> findByOpenid(String openid);
+   Optional<User> findFirstById(Long id);
 }

@@ -16,4 +16,6 @@ public interface CouponService {
     List<Coupon> getByCategroy(Long cid);
 
     List<Coupon> getWholeStoreCoupons();
+
+    void collectOneCoupon(Long uid,Long couponid);
 }

@@ -2,6 +2,8 @@ package com.lin.missyou.utils;
 
 import com.lin.missyou.bo.PageCounter;
 
+import java.util.Date;
+
 /**
  * @ClassName: com.lin.missyou.utils
  * @Author: Mrguo
@@ -17,5 +19,14 @@ public class CommonUtil {
                 .size(count)
                 .build();
         return pageCounter;
+    }
+    public static Boolean isInTimeLine(Date date, Date start, Date end) {
+        Long time = date.getTime();
+        Long startTime = start.getTime();
+        Long endTime = end.getTime();
+        if (time > startTime && time < endTime) {
+            return true;
+        }
+        return false;
     }
 }

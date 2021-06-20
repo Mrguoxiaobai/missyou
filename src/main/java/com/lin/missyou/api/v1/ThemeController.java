@@ -2,7 +2,7 @@ package com.lin.missyou.api.v1;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;
-import com.lin.missyou.exception.NotFoundExecption;
+import com.lin.missyou.exception.http.NotFoundExecption;
 import com.lin.missyou.model.Theme;
 import com.lin.missyou.service.ThemeService;
 import com.lin.missyou.vo.ThemePureVO;
