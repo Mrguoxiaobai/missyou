@@ -30,4 +30,39 @@ public interface CouponRepostory extends JpaRepository<Coupon,Long> {
             "and a.startTime < :now\n" +
             "and a.endTime > :now\n" )
     List<Coupon> findByWholeStore(boolean isWholeStore, Date now);
+
+    @Query("select c from Coupon c\n" +
+            "join UserCoupon uc\n" +
+            "on c.id = uc.couponId\n" +
+            "join User u\n" +
+            "on u.id = uc.userId\n" +
+            "where uc.status = 1 \n" +
+            "and u.id = :uid\n" +
+            "and c.startTime < :now\n" +
+            "and c.endTime > :now\n" +
+            "and uc.orderId is null")
+    List<Coupon> findMyAvailable(Long uid, Date now);
+
+    @Query("select c From Coupon c\n" +
+            "join UserCoupon uc\n" +
+            "on c.id = uc.couponId\n" +
+            "join User u\n" +
+            "on u.id = uc.userId\n" +
+            "where u.id = :uid\n" +
+            "and uc.status = 2\n" +
+            "and uc.orderId is not null \n" +
+            "and c.startTime < :now\n" +
+            "and c.endTime > :now")
+    List<Coupon> findMyUsed(Long uid, Date now);
+
+    @Query("select c From Coupon c\n" +
+            "join UserCoupon uc\n" +
+            "on c.id = uc.couponId\n" +
+            "join User u\n" +
+            "on u.id = uc.userId\n" +
+            "where u.id = :uid\n" +
+            "and uc.orderId is null\n" +
+            "and uc.status <> 2\n" +
+            "and c.endTime < :now")
+    List<Coupon> findMyExpired(Long uid, Date now);
 }

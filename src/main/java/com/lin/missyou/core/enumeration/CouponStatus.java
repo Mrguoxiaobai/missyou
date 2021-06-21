@@ -1,5 +1,7 @@
 package com.lin.missyou.core.enumeration;
 
+import com.lin.missyou.exception.http.ParameterException;
+
 import java.util.stream.Stream;
 
 /**
@@ -12,7 +14,8 @@ import java.util.stream.Stream;
 public enum CouponStatus {
     AVAILABLE(1, "可以使用,未过期"),
     USED(2, "已使用"),
-    EXPIRED(3, "未使用，已过期");
+    EXPIRED(3, "未使用，已过期"),
+    UNKNOWN(-1,"未知");
 
     private Integer value;
 
@@ -24,10 +27,10 @@ public enum CouponStatus {
         this.value =value;
     }
 
-    public static CouponStatus toType(int value) {
+    public static CouponStatus toType(Integer value) {
         return Stream.of(CouponStatus.values())
                 .filter(c -> c.value == value)
                 .findAny()
-                .orElse(null);
+                .orElse(CouponStatus.UNKNOWN);
     }
 }

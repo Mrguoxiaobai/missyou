@@ -72,5 +72,23 @@ public class CouponServiceImpl implements CouponService {
 
     }
 
+    @Override
+    public List<Coupon> getMyAvailableCoupons(Long uid) {
+        Date now = new Date();
+        return couponRepostory.findMyAvailable(uid,now);
+    }
+
+    @Override
+    public List<Coupon> getMyUsedCoupons(Long uid) {
+        Date now = new Date();
+        return couponRepostory.findMyUsed(uid,now);
+    }
+
+    @Override
+    public List<Coupon> getMyExpiredCoupons(Long uid) {
+        Date now = new Date();
+        return couponRepostory.findMyExpired(uid,now);
+    }
+
 
 }
