@@ -9,10 +9,12 @@ import javax.validation.constraints.NotBlank;
 
 
 /**
+ * The type Token get dto.
+ *
  * @ClassName: TokenGetDTO
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 10:56
+ * @Date: 2021 -06-17 10:56
  * @Version: 1.0
  */
 @Getter

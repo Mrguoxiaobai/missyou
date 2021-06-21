@@ -12,11 +12,21 @@ import javax.annotation.Resource;
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;
 
+/**
+ * The type Banner controller.
+ */
 @RestController
 @RequestMapping("/v1/banner")
 public class BannerController {
     @Resource
     private BannerService bannerService;
+
+    /**
+     * Gets banner.
+     *
+     * @param name the name
+     * @return the banner
+     */
     @GetMapping("/name/{name}")
     //@ScopeLevel
     public Banner getBanner(@PathVariable @NotBlank String name) {

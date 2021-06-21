@@ -20,10 +20,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * The type Coupon controller.
+ *
  * @ClassName: com.lin.missyou.api.v1
- * @Author: Mrguo
+ * @Author: Morguo
  * @Description: TODO
- * @Date: 2021/6/18
+ * @Date: 2021 /6/18
  * @Version: 1.0
  */
 @RestController
@@ -31,6 +33,13 @@ import java.util.stream.Collectors;
 public class CouponController {
     @Resource
     private CouponService couponService;
+
+    /**
+     * Get coupon list by category list.
+     *
+     * @param cid the cid
+     * @return the list
+     */
     @GetMapping("/by/category/{cid}")
     public List<CouponPureVO> getCouponListByCategory(@PathVariable Long cid){
         List<Coupon> coupons = couponService.getByCategroy(cid);
@@ -39,6 +48,12 @@ public class CouponController {
         }
         return CouponPureVO.getList(coupons);
     }
+
+    /**
+     * Get whole store coupon list list.
+     *
+     * @return the list
+     */
     @GetMapping("/whole_store")
     public List<CouponPureVO> getWholeStoreCouponList(){
         List<Coupon> coupons = couponService.getWholeStoreCoupons();
@@ -47,6 +62,12 @@ public class CouponController {
         }
         return CouponPureVO.getList(coupons);
     }
+
+    /**
+     * Collect coupon.
+     *
+     * @param id the id
+     */
     @PostMapping("/collect/{id}")
     @ScopeLevel
     public void collectCoupon(@PathVariable Long id){
@@ -54,7 +75,13 @@ public class CouponController {
         couponService.collectOneCoupon(uid,id);
         UnifyResponse.createSuccess(0);
     }
-    
+
+    /**
+     * Get my coupon by status list.
+     *
+     * @param status the status
+     * @return the list
+     */
     @GetMapping("/myself/by/status/{status}")
     @ScopeLevel
     public List<CouponPureVO> getMyCouponByStatus(@PathVariable Integer status){
@@ -76,6 +103,11 @@ public class CouponController {
         return CouponPureVO.getList(couponList);
     }
 
+    /**
+     * Get user coupon with category list.
+     *
+     * @return the list
+     */
     @GetMapping("/myself/available/with_category")
     @ScopeLevel
     public List<CouponCategoryVO> getUserCouponWithCategory(){

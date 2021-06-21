@@ -12,10 +12,12 @@ import javax.annotation.Resource;
 import java.util.Optional;
 
 /**
+ * The type Spu service.
+ *
  * @ClassName: SpuServiceImpl
  * @Author: Mrguo
- * @Description: spu  接口实现
- * @Date: 2021-06-16 15:18
+ * @Description: spu 接口实现
+ * @Date: 2021 -06-16 15:18
  * @Version: 1.0
  */
 @Service

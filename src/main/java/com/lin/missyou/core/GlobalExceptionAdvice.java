@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
 
+/**
+ * The type Global exception advice.
+ */
 @ControllerAdvice
 public class GlobalExceptionAdvice {
     @Autowired
@@ -22,9 +25,10 @@ public class GlobalExceptionAdvice {
 
     /**
      * 处理服务器异常
-     * @param req
-     * @param e
-     * @return
+     *
+     * @param req the req
+     * @param e   the e
+     * @return unify response
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -36,9 +40,10 @@ public class GlobalExceptionAdvice {
 
     /**
      * 处理http请求异常
-     *@param req
-     * @param e
-     * @return
+     *
+     * @param req the req
+     * @param e   the e
+     * @return response entity
      */
     @ExceptionHandler(value = HttpException.class)
     public ResponseEntity<UnifyResponse> handleHttpException(HttpServletRequest req, HttpException e){
@@ -53,9 +58,10 @@ public class GlobalExceptionAdvice {
 
     /**
      * 处理参数异常
-     * @param req
-     * @param e
-     * @return
+     *
+     * @param req the req
+     * @param e   the e
+     * @return unify response
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
@@ -68,9 +74,10 @@ public class GlobalExceptionAdvice {
 
     /**
      * 处理url参数异常
-     * @param req
-     * @param e
-     * @return
+     *
+     * @param req the req
+     * @param e   the e
+     * @return unify response
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -80,9 +87,11 @@ public class GlobalExceptionAdvice {
         return new UnifyResponse(10001,message, req.getMethod()+" "+req.getRequestURI());
     }
 
-    /*
-        格式化 异常信息
-    */
+    /**
+     * 格式化 异常信息
+     * @param errors
+     * @return
+     */
     private String formatAllErrors(List<ObjectError> errors){
         StringBuffer errormsg = new StringBuffer();
         errors.forEach(error->errormsg.append("["+error.getDefaultMessage()+"]"));

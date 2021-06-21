@@ -10,14 +10,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * The type Map and json.
+ *
  * @ClassName: com.lin.missyou.utils
  * @Author: Mrguo
  * @Description: TODO
- * @Date: 2021/6/16
+ * @Date: 2021 /6/16
  * @Version: 1.0
  */
 //@Converter
 public class MapAndJson implements AttributeConverter<Map<String,Object>,String> {
+    /**
+     * The Mapper.
+     */
     @Resource
     ObjectMapper mapper;
     @Override

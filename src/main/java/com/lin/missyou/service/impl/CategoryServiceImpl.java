@@ -11,16 +11,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * The type Category service.
+ *
  * @ClassName: CategoryServiceImpl
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 8:19
+ * @Date: 2021 -06-17 8:19
  * @Version: 1.0
  */
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Resource
     private CategoryRepostory categoryRepostory;
+
     @Override
     public Map<Integer, List<Category>> getAll() {
         List<Category> roots = categoryRepostory.findAllByIsRootOrderByIndexDesc(1);

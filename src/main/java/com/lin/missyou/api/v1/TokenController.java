@@ -13,10 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * The type Token controller.
+ *
  * @ClassName: TokenController
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 10:51
+ * @Date: 2021 -06-17 10:51
  * @Version: 1.0
  */
 @RestController
@@ -24,6 +26,13 @@ import java.util.Map;
 public class TokenController {
     @Resource
     private AuthenticationService authenticationService;
+
+    /**
+     * Get token map.
+     *
+     * @param tokenGetDTO the token get dto
+     * @return the map
+     */
     @PostMapping("")
     public Map<String,String> getToken(@RequestBody @Validated TokenGetDTO tokenGetDTO){
         HashMap<String, String> map = new HashMap<>();
@@ -40,6 +49,13 @@ public class TokenController {
         map.put("token",token);
         return map;
     }
+
+    /**
+     * Verify map.
+     *
+     * @param tokenDTO the token dto
+     * @return the map
+     */
     @PostMapping("/verify")
     public Map<String,Boolean> verify(@RequestBody TokenDTO tokenDTO){
         Boolean isVelid = JwtToken.verifyToken(tokenDTO.getToken());

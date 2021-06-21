@@ -12,10 +12,12 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 /**
+ * The type Jwt token.
+ *
  * @ClassName: com.lin.missyou.utils
  * @Author: Mrguo
  * @Description: TODO
- * @Date: 2021/6/17
+ * @Date: 2021 /6/17
  * @Version: 1.0
  */
 @Component
@@ -25,15 +27,32 @@ public class JwtToken {
     private static Integer expiredTimeIn;
     private static Integer defaultScope=8;
 
+    /**
+     * Set token key.
+     *
+     * @param jwtKey the jwt key
+     */
     @Value("${missyou.security.jwt-key}")
     public void setTokenKey(String jwtKey){
         JwtToken.jwtKey=jwtKey;
     }
+
+    /**
+     * Set expired time.
+     *
+     * @param expiredTimeIn the expired time in
+     */
     @Value("${missyou.security.token-expired-in}")
     public void setExpiredTime(Integer expiredTimeIn){
         JwtToken.expiredTimeIn=expiredTimeIn;
     }
 
+    /**
+     * Get claims optional.
+     *
+     * @param token the token
+     * @return the optional
+     */
     public static Optional<Map<String, Claim>> getClaims(String token){
         DecodedJWT decodedJWT;
         Algorithm algorithm = Algorithm.HMAC256(JwtToken.jwtKey);
@@ -46,13 +65,34 @@ public class JwtToken {
         return Optional.of(decodedJWT.getClaims());
     }
 
+    /**
+     * Make token string.
+     *
+     * @param uid   the uid
+     * @param scope the scope
+     * @return the string
+     */
     public static String makeToken(Long uid ,Integer scope){
         return JwtToken.getToken(uid,scope);
     }
+
+    /**
+     * Make token string.
+     *
+     * @param uid the uid
+     * @return the string
+     */
     public static String makeToken(Long uid) {
         return JwtToken.getToken(uid, JwtToken.defaultScope);
     }
 
+    /**
+     * Get token string.
+     *
+     * @param uid   the uid
+     * @param scope the scope
+     * @return the string
+     */
     public static String getToken(Long uid,Integer scope){
         Algorithm algorithm = Algorithm.HMAC256(JwtToken.jwtKey);
         Map<String, Date> map = JwtToken.calculateExpiredIssues();
@@ -64,6 +104,13 @@ public class JwtToken {
                 .withIssuedAt(map.get("now"))
                 .sign(algorithm);
     }
+
+    /**
+     * Verify token boolean.
+     *
+     * @param token the token
+     * @return the boolean
+     */
     public static Boolean verifyToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(JwtToken.jwtKey);

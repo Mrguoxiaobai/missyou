@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * The type Activity controller.
+ *
  * @ClassName: ActivityController
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-18 16:00
+ * @Date: 2021 -06-18 16:00
  * @Version: 1.0
  */
 @RestController
@@ -24,6 +26,13 @@ import javax.annotation.Resource;
 public class ActivityController {
     @Resource
     private ActivityService activityService;
+
+    /**
+     * Get home activity activity pure vo.
+     *
+     * @param name the name
+     * @return the activity pure vo
+     */
     @GetMapping("/name/{name}")
     public ActivityPureVO getHomeActivity(@PathVariable String name){
         Activity activity = activityService.getByName(name);
@@ -32,6 +41,13 @@ public class ActivityController {
         }
         return new ActivityPureVO(activity);
     }
+
+    /**
+     * Get activity with coupons activity coupon vo.
+     *
+     * @param name the name
+     * @return the activity coupon vo
+     */
     @GetMapping("/name/{name}/with_coupon")
     public ActivityCouponVO getActivityWithCoupons(@PathVariable String name){
         Activity activity = activityService.getByName(name);

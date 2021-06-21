@@ -15,10 +15,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * The type Category controller.
+ *
  * @ClassName: CategoryController
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 8:24
+ * @Date: 2021 -06-17 8:24
  * @Version: 1.0
  */
 @RestController
@@ -29,12 +31,22 @@ public class CategoryController {
     @Resource
     private GridCategoryService gridCategoryService;
 
+    /**
+     * Get all categories all vo.
+     *
+     * @return the categories all vo
+     */
     @GetMapping("/all")
     public CategoriesAllVO getAll(){
         Map<Integer, List<Category>> all = categoryService.getAll();
         return new CategoriesAllVO(all);
     }
 
+    /**
+     * Get grid all list.
+     *
+     * @return the list
+     */
     @GetMapping("/grid/all")
     public List<GridCategory> getGridAll(){
         List<GridCategory> all = gridCategoryService.getAll();

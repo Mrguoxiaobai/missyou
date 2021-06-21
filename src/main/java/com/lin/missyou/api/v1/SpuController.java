@@ -15,10 +15,12 @@ import javax.validation.constraints.Positive;
 import java.util.Optional;
 
 /**
+ * The type Spu controller.
+ *
  * @ClassName: SpuController
  * @Author: Mrguo
  * @Description: spu API 接口
- * @Date: 2021-06-16 15:14
+ * @Date: 2021 -06-16 15:14
  * @Version: 1.0
  */
 @RestController
@@ -29,8 +31,9 @@ public class SpuController {
 
     /**
      * 查询一个商品详细信息
-     * @param id
-     * @return
+     *
+     * @param id the id
+     * @return spu
      */
     @GetMapping("/id/{id}/detail")
     public Spu getSpu(@PathVariable @Positive Long id){
@@ -43,7 +46,10 @@ public class SpuController {
 
     /**
      * 查询所有商品信息
-     * @return
+     *
+     * @param start the start
+     * @param count the count
+     * @return latest spu list
      */
     @GetMapping("/latest")
     public PagingDozer<Spu,SpuSimplifyVO> getLatestSpuList(@RequestParam(defaultValue ="0") @Positive Integer start,
@@ -53,6 +59,16 @@ public class SpuController {
         PagingDozer<Spu, SpuSimplifyVO> page = new PagingDozer<>(spus, SpuSimplifyVO.class);
         return page;
     }
+
+    /**
+     * Gets by category id.
+     *
+     * @param id     the id
+     * @param isRoot the is root
+     * @param start  the start
+     * @param count  the count
+     * @return the by category id
+     */
     @GetMapping("/by/category/{id}")
     public PagingDozer<Spu,SpuSimplifyVO> getByCategoryId(@PathVariable @Positive Long id,
                                                           @RequestParam(name = "is_root",defaultValue = "false") boolean isRoot ,

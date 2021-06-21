@@ -6,12 +6,21 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 /**
+ * The interface User coupon repository.
+ *
  * @ClassName: UserCouponRepository
  * @Author: Mrguo
  * @Description:
- * @Date: 2021/6/2015:30
+ * @Date: 2021 /6/2015:30
  * @Version: 1.0
  */
 public interface UserCouponRepository extends JpaRepository<UserCoupon,Long> {
+    /**
+     * Find first by user id and coupon id optional.
+     *
+     * @param uid      the uid
+     * @param couponId the coupon id
+     * @return the optional
+     */
     Optional<UserCoupon> findFirstByUserIdAndCouponId(Long uid, Long couponId);
 }

@@ -9,10 +9,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * The type Activity.
+ *
  * @ClassName: Activity
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-18 15:43
+ * @Date: 2021 -06-18 15:43
  * @Version: 1.0
  */
 @Entity
@@ -27,6 +29,7 @@ public class Activity extends Base{
     private String title;
     private String description;
     //private Long activityCoverId;
+
     private Date startTime;
     private Date endTime;
     private String remark;

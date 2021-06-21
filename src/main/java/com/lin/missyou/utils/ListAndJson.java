@@ -9,14 +9,19 @@ import javax.persistence.AttributeConverter;
 import java.util.List;
 
 /**
+ * The type List and json.
+ *
  * @ClassName: com.lin.missyou.utils
  * @Author: Mrguo
  * @Description: TODO
- * @Date: 2021/6/16
+ * @Date: 2021 /6/16
  * @Version: 1.0
  */
 //@Converter
 public class ListAndJson implements AttributeConverter<List<Object>,String> {
+    /**
+     * The Mapper.
+     */
     @Resource
     ObjectMapper mapper;
     @Override

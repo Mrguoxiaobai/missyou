@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
+ * The type Activity service.
+ *
  * @ClassName: ActivityServiceImpl
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-18 16:10
+ * @Date: 2021 -06-18 16:10
  * @Version: 1.0
  */
 @Service

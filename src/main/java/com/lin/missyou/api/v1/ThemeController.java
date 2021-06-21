@@ -15,10 +15,12 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * The type Theme controller.
+ *
  * @ClassName: ThemeController
  * @Author: Mrguo
  * @Description: theme api
- * @Date: 2021-06-17 7:30
+ * @Date: 2021 -06-17 7:30
  * @Version: 1.0
  */
 @RestController
@@ -26,6 +28,13 @@ import java.util.Optional;
 public class ThemeController {
     @Resource
     private ThemeService themeService;
+
+    /**
+     * Get theme group by names list.
+     *
+     * @param names the names
+     * @return the list
+     */
     @GetMapping("/by/names")
     public List<ThemePureVO> getThemeGroupByNames(@RequestParam String names){
         List<String> list = Arrays.asList(names.split(","));
@@ -38,6 +47,13 @@ public class ThemeController {
         });
         return vos;
     }
+
+    /**
+     * Get theme by name with spu theme.
+     *
+     * @param name the name
+     * @return the theme
+     */
     @GetMapping("/name/{name}/with_spu")
     public Theme getThemeByNameWithSpu(@PathVariable String name){
         Optional<Theme> theme = themeService.getByName(name);

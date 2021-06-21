@@ -18,10 +18,12 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
+ * The type Wx authentication service.
+ *
  * @ClassName: WxAuthenticationServiceImpl
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 14:43
+ * @Date: 2021 -06-17 14:43
  * @Version: 1.0
  */
 @Service
@@ -49,6 +51,13 @@ public class WxAuthenticationServiceImpl implements AuthenticationService {
         }
         return this.registerUser(session);
     }
+
+    /**
+     * Register user string.
+     *
+     * @param session the session
+     * @return the string
+     */
     public String registerUser(Map<String,Object> session){
         String openid = (String) session.get("openid");
         if(openid==null){

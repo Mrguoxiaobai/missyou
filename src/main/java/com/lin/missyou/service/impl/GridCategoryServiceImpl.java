@@ -9,14 +9,19 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * The type Grid category service.
+ *
  * @ClassName: GridCategoryServiceImpl
  * @Author: Mrguo
  * @Description:
- * @Date: 2021-06-17 8:56
+ * @Date: 2021 -06-17 8:56
  * @Version: 1.0
  */
 @Service
 public class GridCategoryServiceImpl implements GridCategoryService {
+    /**
+     * The Grid category repostory.
+     */
     @Resource
     GridCategoryRepostory gridCategoryRepostory;
     @Override
