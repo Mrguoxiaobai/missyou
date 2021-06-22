@@ -23,4 +23,14 @@ public interface UserCouponRepository extends JpaRepository<UserCoupon,Long> {
      * @return the optional
      */
     Optional<UserCoupon> findFirstByUserIdAndCouponId(Long uid, Long couponId);
+
+    /**
+     * Find first by user id and coupon id and status optional.
+     *
+     * @param uid      the uid
+     * @param couponId the coupon id
+     * @param status   the status
+     * @return the optional
+     */
+    Optional<UserCoupon> findFirstByUserIdAndCouponIdAndStatus(Long uid,Long couponId ,int status);
 }

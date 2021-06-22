@@ -1,5 +1,7 @@
 package com.lin.missyou.service;
 
+import com.lin.missyou.dto.OrderDTO;
+
 /**
  * The interface Order service.
  *
@@ -10,4 +12,5 @@ package com.lin.missyou.service;
  * @Version: 1.0
  */
 public interface OrderService {
+    void isOK(Long uid, OrderDTO orderDTO);
 }

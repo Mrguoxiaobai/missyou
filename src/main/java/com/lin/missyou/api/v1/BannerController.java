@@ -14,6 +14,7 @@ import java.util.Optional;
 
 /**
  * The type Banner controller.
+ * @author Administrator
  */
 @RestController
 @RequestMapping("/v1/banner")
@@ -22,13 +23,11 @@ public class BannerController {
     private BannerService bannerService;
 
     /**
-     * Gets banner.
-     *
+     * Gets banner
      * @param name the name
      * @return the banner
      */
     @GetMapping("/name/{name}")
-    //@ScopeLevel
     public Banner getBanner(@PathVariable @NotBlank String name) {
         Optional<Banner> banner = bannerService.getByName(name);
         return banner.orElseThrow(()->new NotFoundExecption(30005));
