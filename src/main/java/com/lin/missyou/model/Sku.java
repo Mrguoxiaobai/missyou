@@ -1,5 +1,6 @@
 package com.lin.missyou.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.lin.missyou.utils.GenericAndJson;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -45,4 +47,12 @@ public class Sku extends Base {
         }
         this.specs = GenericAndJson.objectToJson(specs);
     }
+    public BigDecimal getActualPrice() {
+        return discountPrice == null ? this.price : this.discountPrice;
+    }
+    @JsonIgnore
+    public List<String> getSpecValueList() {
+        return this.getSpecs().stream().map(Spec::getValue).collect(Collectors.toList());
+    }
+
 }
