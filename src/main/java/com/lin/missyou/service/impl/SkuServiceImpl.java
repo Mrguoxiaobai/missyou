@@ -3,6 +3,7 @@ package com.lin.missyou.service.impl;
 import com.lin.missyou.model.Sku;
 import com.lin.missyou.repository.SkuRepository;
 import com.lin.missyou.service.SkuService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Date: 2021-06-2216:06
  * @Version: 1.0
  */
+@Service
 public class SkuServiceImpl implements SkuService {
     @Resource
     private SkuRepository skuRepository;

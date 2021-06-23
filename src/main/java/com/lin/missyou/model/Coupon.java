@@ -33,7 +33,7 @@ public class Coupon extends Base{
     private BigDecimal minus;
     private BigDecimal rate;
     private Integer type;
-    private Integer activityId;
+    private Long activityId;
     private String remark;
     private Boolean wholeStore;
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "couponList")

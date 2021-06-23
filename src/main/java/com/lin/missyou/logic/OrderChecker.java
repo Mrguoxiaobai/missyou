@@ -25,7 +25,7 @@ public class OrderChecker {
     private OrderDTO orderDTO;
     private List<Sku> serverSkuList;
     private CouponChecker couponChecker;
-    private Integer maxSkuLimit;
+    private Long maxSkuLimit;
     @Getter
     private List<OrderSku> orderSkeList=new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class OrderChecker {
      * @param couponChecker the coupon checker
      * @param maxSkuLimit   the max sku limit
      */
-    public OrderChecker(OrderDTO orderDTO, List<Sku> serverSkuList, CouponChecker couponChecker, Integer maxSkuLimit) {
+    public OrderChecker(OrderDTO orderDTO, List<Sku> serverSkuList, CouponChecker couponChecker, Long maxSkuLimit) {
         this.orderDTO = orderDTO;
         this.serverSkuList = serverSkuList;
         this.couponChecker = couponChecker;

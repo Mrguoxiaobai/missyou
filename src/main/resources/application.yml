@@ -2,6 +2,7 @@ spring:
   profiles:
     active: dev
   jackson:
+    property-naming-strategy: SNAKE_CASE
     date-format: yyyy-MM-dd
 
 wx:
@@ -17,3 +18,4 @@ missyou:
     pay-time-limit: 3600
     pay-callback-host:
     pay-callback-path: /v1/payment/wx/notify
+  year-codes: A,B,C,D,E,F,G,H,J,K

@@ -1,6 +1,5 @@
 package com.lin.missyou.core.enumeration;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.stream.Stream;
 
 /**
@@ -53,7 +52,7 @@ public enum OrderStatus {
     UNKNOWN(-1,"未知");
     private int value;
 
-    OrderStatus(int value, String text) {
+    OrderStatus(Integer value, String text) {
         this.value = value;
     }
 
@@ -62,7 +61,7 @@ public enum OrderStatus {
      *
      * @return the int
      */
-    public int value() {
+    public Integer value() {
         return this.value;
     }
 

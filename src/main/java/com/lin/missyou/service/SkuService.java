@@ -11,6 +11,7 @@ import java.util.List;
  * @Date: 2021-06-2216:04
  * @Version: 1.0
  */
+
 public interface SkuService {
    List<Sku> getSkuListByIds(List<Long> ids);
 }

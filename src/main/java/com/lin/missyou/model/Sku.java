@@ -31,7 +31,7 @@ public class Sku extends Base {
     private Long spuId;
     private String specs;
     private String code;
-    private int stock;
+    private Long stock;
     private Long categoryId;
     private Long rootCategoryId;
     public List<Spec> getSpecs() {
