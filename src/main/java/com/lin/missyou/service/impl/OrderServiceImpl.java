@@ -1,5 +1,6 @@
 package com.lin.missyou.service.impl;
 
+import com.lin.missyou.core.LocalUser;
 import com.lin.missyou.core.enumeration.OrderStatus;
 import com.lin.missyou.core.money.IMoneyDiscount;
 import com.lin.missyou.dto.OrderDTO;
@@ -19,6 +20,9 @@ import com.lin.missyou.service.SkuService;
 import com.lin.missyou.utils.CommonUtil;
 import com.lin.missyou.utils.OrderUtil;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +31,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -109,6 +114,31 @@ public class OrderServiceImpl implements OrderService {
 
         return order.getId();
     }
+
+    @Override
+    public Page<Order> getByStatus(Integer status, Integer pageNum, Integer size) {
+        PageRequest pageable = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
+        Long uid = LocalUser.getUser().getId();
+        if (status == OrderStatus.All.value()) {
+            return this.orderRepostory.findByUserId(uid, pageable);
+        }
+        return this.orderRepostory.findByUserIdAndStatus(uid, status, pageable);
+    }
+
+    @Override
+    public Page<Order> getUnpaid(Integer pageNum, Integer size) {
+        PageRequest pageable = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
+        Long uid = LocalUser.getUser().getId();
+        Date now = new Date();
+        return this.orderRepostory.findByExpiredTimeGreaterThanAndStatusAndUserId(now,OrderStatus.UNPAID.value(),uid,pageable );
+    }
+
+    @Override
+    public Optional<Order> getOrderDetail(Long oid) {
+        Long uid = LocalUser.getUser().getId();
+        return this.orderRepostory.findFirstByUserIdAndId(uid, oid);
+    }
+
 
     private void writeOffCoupon(Long couponId, Long oid, Long uid) {
         int result = this.userCouponRepository.writeOff(couponId, oid, uid);

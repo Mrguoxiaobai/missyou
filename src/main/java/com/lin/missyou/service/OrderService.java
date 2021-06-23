@@ -2,6 +2,10 @@ package com.lin.missyou.service;
 
 import com.lin.missyou.dto.OrderDTO;
 import com.lin.missyou.logic.OrderChecker;
+import com.lin.missyou.model.Order;
+import org.springframework.data.domain.Page;
+
+import java.util.Optional;
 
 /**
  * The interface Order service.
@@ -31,4 +35,10 @@ public interface OrderService {
      * @return the long
      */
     Long placeOrder(Long uid, OrderDTO orderDTO, OrderChecker orderChecker);
+
+    Page<Order> getByStatus(Integer status, Integer pageNum, Integer size);
+
+    Page<Order> getUnpaid(Integer pageNum, Integer size);
+
+    Optional<Order> getOrderDetail(Long oid);
 }
