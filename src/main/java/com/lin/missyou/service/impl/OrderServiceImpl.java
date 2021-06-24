@@ -139,6 +139,16 @@ public class OrderServiceImpl implements OrderService {
         return this.orderRepostory.findFirstByUserIdAndId(uid, oid);
     }
 
+    @Override
+    public void updateOrderPrepayId(Long orderId, String prePayId) {
+        Optional<Order> order = this.orderRepostory.findById(orderId);
+        order.ifPresent(o -> {
+            o.setPrepayId(prePayId);
+            this.orderRepostory.save(o);
+        });
+        order.orElseThrow(() -> new ParameterException(10007));
+    }
+
 
     private void writeOffCoupon(Long couponId, Long oid, Long uid) {
         int result = this.userCouponRepository.writeOff(couponId, oid, uid);

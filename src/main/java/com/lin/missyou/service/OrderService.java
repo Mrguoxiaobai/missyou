@@ -36,9 +36,38 @@ public interface OrderService {
      */
     Long placeOrder(Long uid, OrderDTO orderDTO, OrderChecker orderChecker);
 
+    /**
+     * Gets by status.
+     *
+     * @param status  the status
+     * @param pageNum the page num
+     * @param size    the size
+     * @return the by status
+     */
     Page<Order> getByStatus(Integer status, Integer pageNum, Integer size);
 
+    /**
+     * Gets unpaid.
+     *
+     * @param pageNum the page num
+     * @param size    the size
+     * @return the unpaid
+     */
     Page<Order> getUnpaid(Integer pageNum, Integer size);
 
+    /**
+     * Gets order detail.
+     *
+     * @param oid the oid
+     * @return the order detail
+     */
     Optional<Order> getOrderDetail(Long oid);
+
+    /**
+     * Update order prepay id.
+     *
+     * @param id        the id
+     * @param prepay_id the prepay id
+     */
+    void updateOrderPrepayId(Long id, String prepay_id);
 }
