@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * The interface Spu repostory.
  *
@@ -32,4 +34,6 @@ public interface SpuRepostory extends JpaRepository<Spu,Long> {
      * @return the page
      */
     Page<Spu> findByRootCategoryId(Long id, Pageable pageable);
+
+    List<Spu> findByIdIn(List<Long> ids);
 }

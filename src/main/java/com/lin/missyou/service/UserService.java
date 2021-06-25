@@ -2,6 +2,7 @@ package com.lin.missyou.service;
 
 import com.lin.missyou.model.User;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -21,4 +22,11 @@ public interface UserService {
      * @return the user by id
      */
     Optional<User> getUserById(Long id);
+
+    /**
+     * Update user wx info.
+     *
+     * @param user the user
+     */
+    void updateUserWxInfo(Map<String,Object> user);
 }

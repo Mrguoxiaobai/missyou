@@ -30,4 +30,6 @@ public interface UserRepostory extends JpaRepository<User,Long> {
     * @return the optional
     */
    Optional<User> findFirstById(Long id);
+
+    User findByUnifyUid(Long uuid);
 }

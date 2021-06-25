@@ -1,11 +1,13 @@
 package com.lin.missyou.service.impl;
 
+import com.lin.missyou.core.LocalUser;
 import com.lin.missyou.model.User;
 import com.lin.missyou.repository.UserRepostory;
 import com.lin.missyou.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -24,5 +26,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> getUserById(Long id) {
         return userRepostory.findFirstById(id);
+    }
+    @Override
+    public void updateUserWxInfo(Map<String, Object> wxUser) {
+        Optional<User> user =this.getUserById(LocalUser.getUser().getId());
+        user.get().setNickname(wxUser.get("nickName").toString());
+        user.get().setWxProfile(wxUser);
+        userRepostory.save(user.get());
+    }
+
+    public User createDevUser(Long uid) {
+        User newUser = User.builder().unifyUid(uid).build();
+        userRepostory.save(newUser);
+        return newUser;
+    }
+
+    public User getUserByUnifyUid(Long uuid) {
+        return userRepostory.findByUnifyUid(uuid);
     }
 }

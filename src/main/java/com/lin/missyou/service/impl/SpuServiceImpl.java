@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -34,7 +35,9 @@ public class SpuServiceImpl implements SpuService {
         PageRequest pageRequest = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
         return spuRepostory.findAll(pageRequest);
     }
-
+    public List<Spu> getSpuListInIds(List<Long> ids){
+        return this.spuRepostory.findByIdIn(ids);
+    }
     @Override
     public Page<Spu> getByCategoryId(Long id, boolean isRoot, Integer pageNum, Integer size) {
         PageRequest pageRequest = PageRequest.of(pageNum, size);

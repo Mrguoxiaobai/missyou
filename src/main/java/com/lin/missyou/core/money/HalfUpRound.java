@@ -1,5 +1,7 @@
 package com.lin.missyou.core.money;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 

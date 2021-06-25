@@ -47,7 +47,6 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(value = HttpException.class)
     public ResponseEntity<UnifyResponse> handleHttpException(HttpServletRequest req, HttpException e){
-        System.out.println("httpExevption");
         UnifyResponse message = new UnifyResponse(e.getCode(), codeConfiguration.getMessage(e.getCode()), req.getMethod()+" "+req.getRequestURI());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
