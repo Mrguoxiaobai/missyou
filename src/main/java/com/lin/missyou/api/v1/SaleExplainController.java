@@ -17,7 +17,7 @@ import java.util.List;
  * @Date: 2021/6/2518:41
  * @Version: 1.0
  */
-@RequestMapping("sale_explain")
+@RequestMapping("/v1/sale_explain")
 @RestController
 public class SaleExplainController {
     @Resource
